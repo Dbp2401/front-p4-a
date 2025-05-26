@@ -14,13 +14,13 @@ export default function NotFoundPage() {
           <p class="error-message">
             Lo sentimos, no pudimos encontrar la página que estás buscando.
           </p>
-          
+
           <div class="error-actions">
-            <a href="/inicio" class="error-button">
+            <a href="/" class="error-button">
               Volver al inicio
             </a>
             <p class="error-alternative">
-              O <a href="/buscar" class="error-link">buscar contenido</a>
+              O <a href="/search" class="error-link">buscar contenido</a>
             </p>
           </div>
         </div>

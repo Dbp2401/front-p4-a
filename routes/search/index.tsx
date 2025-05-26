@@ -10,13 +10,15 @@ export const handler: Handlers = {
     try {
       const { url } = _req;
       const searchParams = new URL(url).searchParams;
-      const query = searchParams.get("query");
+      const query = searchParams.get("name"); //aqui hay que cambiar query por name
+      // console.log("Search URL:", query);
       if (!query || query.trim() === "") {
         return ctx.render({ posts: [], query });
       }
       const { data } = await axios.get<ApiResponseSuccess<Post[]>>(
-        `${API_BASE_URL}/api/posts?query=${query}`,
+        `${API_BASE_URL}api/posts?search=${query}`, //quito la barra antes de api y busco por lo parametros que dice la documentacion en este caso search
       );
+      // console.log("Search results:", data.data.posts);
       return ctx.render({ posts: data.data.posts });
     } catch (_) {
       return ctx.render({ posts: [] });
@@ -44,7 +46,7 @@ export default function Search({ data }: SearchProps) {
           <div className="search-input-container">
             <input
               type="text"
-              name="search"
+              name="name" //he cambiado a name esto
               placeholder="Buscar por título o autor..."
               value={searchTerm}
               className="search-input"

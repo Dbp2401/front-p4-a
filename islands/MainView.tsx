@@ -14,12 +14,14 @@ export default function MainView({ isGrid, posts }: HomeProps) {
         <button
           type="button"
           className={`toggle-button ${isGrid.value ? "active" : ""}`}
+          onClick={() => (isGrid.value = !isGrid.value)} //Faltaba el onClick
           title={isGrid.value
             ? "Cambiar a vista de lista"
             : "Cambiar a vista de cuadrícula"}
         >
           {isGrid.value ? "☰ Lista" : "⏹️ Cuadrícula"}
         </button>
+        {/* {console.log("isGrid:", isGrid.value)} */}
       </div>
 
       <div

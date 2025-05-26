@@ -2,14 +2,13 @@ import Comment from "./comments.ts";
 
 interface Post {
   _id: string;
-  titulo: string;
-  contenido: string;
-  autor: string;
-  portada: string;
+  title: string;
+  content: string;
+  author: string;
+  cover: string;
   likes: number;
-  created_at: Date;
-  updated_at: Date;
-  comentarios: Comment[];
+  createdAt: Date;
+  comments: Comment[];
 }
 
 export default Post;

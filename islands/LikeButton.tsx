@@ -21,25 +21,24 @@ export default function LikeButton(
     e.preventDefault();
 
     if (isLoading) return;
-
+    //he quitado la funcion del delete y he actualizado el post
     try {
       setIsLoading(true);
       setError("");
 
-      await axios.delete(`${API_BASE_URL}/api/posts/${postId}/like`, {
-        headers: {
-          "Content-Type": "application/json",
+      const response = await axios.post(
+        `${API_BASE_URL}api/posts/${postId}/like`,
+        {},
+        {
+          headers: { "Content-Type": "application/json" },
         },
-      });
+      );
+      if (response.status !== 200) {
+        throw new Error("Error al dar like al post");
+      }
 
-      setLiked(!liked);
       setLikes((prev) => liked ? prev - 1 : prev + 1);
-
-      setTimeout(() => {
-        if (typeof globalThis.window !== "undefined") {
-          globalThis.window.location.reload();
-        }
-      }, 3000);
+      setLiked(!liked);
     } catch (err) {
       console.error("Error al dar like:", err);
       setError("No se pudo dar like al post");

@@ -10,10 +10,11 @@ export const handler: Handlers = {
   async GET(_req, ctx) {
     try {
       const { data } = await axios.get<ApiResponseSuccess<Post[]>>(
-        `${API_BASE_URL}/api/post`,
+        `${API_BASE_URL}api/posts`, //aqui era posts no post y sin /api solo api
       );
+      // console.log("Posts:", data.data.posts);
       return ctx.render({ posts: data.data.posts });
-    } catch (_) {
+    } catch (_e) {
       return ctx.render({ posts: [] });
     }
   },
@@ -32,9 +33,7 @@ export default function Home(props: PageProps<{ posts: Post[] }>) {
             <p>No hay posts</p>
           </div>
         )
-        : (
-          <MainView isGrid={isGrid} posts={posts} />
-        )}
+        : <MainView isGrid={isGrid} posts={posts} />}
     </div>
   );
 }

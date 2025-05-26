@@ -16,12 +16,12 @@ export default function Layout({ Component }: PageProps) {
       <header className="header">
         <div className="container">
           <div className="logo">
-            <a href="#">El Blog de {OWNER}</a>
+            <a href="/">El Blog de {OWNER}</a>
           </div>
           <nav className="nav">
-            <a href="#" className="nav-link">Inicio</a>
-            <a href="#" className="nav-link">Buscar</a>
-            <a href="#" className="nav-link">Crear</a>
+            <a href="/" className="nav-link">Inicio</a>
+            <a href="/search" className="nav-link">Buscar</a>
+            <a href="/create" className="nav-link">Crear</a>
           </nav>
         </div>
       </header>
@@ -44,13 +44,13 @@ export default function Layout({ Component }: PageProps) {
               <h3>Enlaces Rápidos</h3>
               <ul>
                 <li>
-                  <a href="#">Inicio</a>
+                  <a href="/">Inicio</a>
                 </li>
                 <li>
-                  <a href="#">Buscar</a>
+                  <a href="/search">Buscar</a>
                 </li>
                 <li>
-                  <a href="#">Crear</a>
+                  <a href="/create">Crear</a>
                 </li>
               </ul>
             </div>
